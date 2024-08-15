@@ -1,8 +1,8 @@
 import { FaRegBookmark } from "react-icons/fa6";
-const Blog = ({blog,handleAddToBookmark}) => {
-   const {title,cover,author,author_img,reading_time,posted_date,hashtags} = blog;
+const Blog = ({blog,handleAddToBookmark,handleMarkAsRead}) => {
+   const {id,title,cover,author,author_img,reading_time,posted_date,hashtags} = blog;
     return (
-        <div className="mb-20">
+        <div className="mb-20 space-y-4">
             <img className="w-full mb-8" src={cover} alt="" />
             <div className="flex justify-between mb-4">
                 <div className="flex">
@@ -24,6 +24,7 @@ const Blog = ({blog,handleAddToBookmark}) => {
                     hashtags.map((hash,idx)=> <span key={idx}><a href="">#{hash}</a></span>)
                 }
             </p>
+            <button onClick={()=>handleMarkAsRead(id,reading_time)} className="text-purple-500 font-semibold">Mark As Read</button>
         </div>
     );
 };
